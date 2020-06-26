@@ -23,7 +23,7 @@ var wg sync.WaitGroup
 func init(){
 
     fmt.Println(" Initialing application ... ")
-	urls[0] = "http://www.mocky.io/v2/5ecfd5c3200006200e3d64b"
+	urls[0] = "http://www.mocky.io/v2/5ecfd5dc3200006200e3d64b"
 	urls[1] = "http://www.mocky.io/v2/5ecfd630320000f1aee3d64d"
 	urls[2] = "http://www.mocky.io/v2/5ecfd6473200009dc1e3d64e"
 
