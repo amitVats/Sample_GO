@@ -6,7 +6,6 @@ import(
 	"io/ioutil"
 	"encoding/json"
 	"sync"
-	//"sample.com/datasource"
 )
 
 type MarvelCharacterData struct{
@@ -23,10 +22,10 @@ var wg sync.WaitGroup
 
 func init(){
 
-
-	urls[0] = "http://localhost:10000/avenger"
-	urls[1] = "http://localhost:10000/villian"
-	urls[2] = "http://localhost:10000/mutant"
+    fmt.Println(" Initialing application ... ")
+	urls[0] = "http://www.mocky.io/v2/5ecfd5c3200006200e3d64b"
+	urls[1] = "http://www.mocky.io/v2/5ecfd630320000f1aee3d64d"
+	urls[2] = "http://www.mocky.io/v2/5ecfd6473200009dc1e3d64e"
 
     UpdateMarvelData("Initial")
     
@@ -50,11 +49,10 @@ func consumeAPI(ch chan *MarvelCharacterData,url string) {
 
 
 	if err != nil {
-		fmt.Printf("The http resquest has failed...")
+		fmt.Printf("The http request has failed...")
 	}else{
 		data, _ := ioutil.ReadAll(response.Body)
 		mdata,_ := mapToMarvelCharacterData([]byte(data))
-		//dataQueque <- mdata
 		ch <- mdata
 	}
 }
@@ -64,7 +62,7 @@ func mapToMarvelCharacterData(body []byte) (*MarvelCharacterData,error) {
  	var s = new(MarvelCharacterData)
     err := json.Unmarshal(body, &s)
     if(err != nil){
-        fmt.Println("whoops:", err)
+        fmt.Println("whoops:  Exception while parsing json", err)
     }
     return s, err
 }
@@ -91,6 +89,6 @@ func UpdateMarvelData(source string){
 		
 	}
 
-	PrintData()
+	//PrintData()
 			
 }

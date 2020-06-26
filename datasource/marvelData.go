@@ -32,25 +32,18 @@ func  Put(name string, power int) {
 
 	_,present := md.characterMap[name]
 
-	fmt.Println("putting value : " + name)
-
 	if present {
-
-		    fmt.Println("Present")
 		    node := md.characterMap[name]
-		    fmt.Println(node.character.Name)
 			node.character.Max_power = power
 			remove(node)
 			addToFront(node)
 			
 		}else{
-
-			fmt.Println("Not Present")
 			character := &Character{ Name : name, Max_power : power }
 			newnode := &Node{ character :  character, next : nil , prev : nil }
 
 			if md.capacity == 15 {
-				fmt.Println("Capacity is full")
+
 				delete(md.characterMap , md.tail.character.Name)
 				remove(md.tail)				
 				addToFront(newnode)
@@ -70,10 +63,9 @@ func Get(name string) int{
 
 	  time_now := time.Now()
 
-	  if(time_now.Sub(md.last_update) >= 2 * time.Minute){
+	  if(time_now.Sub(md.last_update) >= 10 * time.Second){
 	  	fmt.Println("Old data found..")
 	  	// function call to fetch new data 
-	  	fmt.Println(time_now)
 	  	UpdateMarvelData("Update")
 	  }
 
