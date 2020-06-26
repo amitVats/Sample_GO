@@ -1,5 +1,5 @@
 # Sample_GO
- Sample_ Go is a Sample Application return in Golang
+ Sample_ Go is a Sample Application written in Golang
  
  Project Setup steps :
  
