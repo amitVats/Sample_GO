@@ -3,7 +3,7 @@
  
  Project Setup steps :
  
- 1. Create a folder sample.com under src folder in your $GPPATH
+ 1. Create a folder sample.com under src folder in your $GOPATH
  2. Clone the repository
  
  Execute the program
