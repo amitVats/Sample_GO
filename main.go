@@ -22,8 +22,8 @@ func main(){
     server := &http.Server{
         Addr : ":9090",
         Handler: myRouter,
-        ReadTimeout : 50 * time.Second
-        WriteTimeout : 50 * time.Second
+        ReadTimeout : 50 * time.Second,
+        WriteTimeout : 50 * time.Second,
     }
 
     err := server.ListenAndServe()
